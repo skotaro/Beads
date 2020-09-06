@@ -1,6 +1,15 @@
-# BEADS: Baseline Estimation And Denoising w/ Sparsity 
-### 
+# BEADS: Baseline Estimation And Denoising using Sparsity 
 
-1. This is a algorithm translated from Matlab to Python code.
+This is a Python translation of an awesome baseline estimation algorithm "BEADS" [originally written in MATLAB](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity). The initial translation had been done by @hsiaocy. 
 
-2. Please check [here](https://www.mathworks.com/matlabcentral/fileexchange/49974-beads--baseline-estimation-and-denoising-w--sparsity--chromatogram-signals-) for Matlab code and [here](http://eeweb.poly.edu/iselesni/pubs/BEADS_2014.pdf) for complete algorithm.
+# Install
+WIP
+
+# Usage
+WIP
+
+# Resources
+- [Original paper (2014)](https://doi.org/10.1016/j.chemolab.2014.09.014)
+- Preprints uploaded to [polu.edu](http://eeweb.poly.edu/iselesni/pubs/BEADS_2014.pdf) and [laurant-duval.eu](http://www.laurent-duval.eu/Articles/Ning_X_2014_j-chemometr-intell-lab-syst_chromatogram_bedusbeads-preprint.pdf)
+- [Project website by Laurent Duval](http://www.laurent-duval.eu/siva-beads-baseline-background-removal-filtering-sparsity.html)
+- [Original MATLAB code](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity)

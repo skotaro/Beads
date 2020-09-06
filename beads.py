@@ -7,21 +7,26 @@ def beads(y, d, fc, r, Nit, lam0, lam1, lam2, pen, conv=None):
     """
 
     Baseline estimation and denoising using sparsity (BEADS)
+    The notation follows the rule in the original MATLAB code.
 
     INPUT
-        y: Noisy observation
-        d: Filter order (d = 1 or 2)
-        fc: Filter cut-off frequency (cycles/sample) (0 < fc < 0.5)
-        r: Asymmetry ratio
-        Nit: Number of iteration
-        lam0, lam1, lam2: Regularization parameters
-        pen: Penalty function, 'L1_v1' or 'L1_v2'
-        conv: Smoothing factor for differential matrix D. Must be integer.
-              3 to 5 is recommended.
+        y: Noisy observation.
+        d: Filter order (d = 1 or 2).
+        fc: Filter cut-off frequency (cycles/sample) (0 < fc < 0.5).
+        r: Asymmetry ratio for penalty function.
+        Nit: Number of iteration (usually 10 to 30 is enough).
+        lam0, lam1, lam2: Regularization parameters.
+        pen: Penalty function, 'L1_v1' or 'L1_v2'.
+
+        Original feature in this translation.
+        conv: Smoothing factor for differential matrix D. This stabilizes
+              outputs with slightly diffrent values for lam1 and lam2.
+              Must be integer. 3 to 5 is recommended.
+              
 
     OUTPUT
-        x: Estimated sparse-derivative signal
-        f: Estimated baseline
+        x: Estimated sparse-derivative signal.
+        f: Estimated baseline.
         cost: Cost function history
 
     Reference:
@@ -31,11 +36,12 @@ def beads(y, d, fc, r, Nit, lam0, lam1, lam2, pen, conv=None):
         doi: 10.1016/j.chemolab.2014.09.014
         Available online 30 September 2014
 
-    Helper:
-        Hisao, Chun-Yi
+    Maintainer:
+        Kotaro Saito
+    
+    Initial translator:
+        Hisao Chun-Yi
 
-    Github:
-        https://github.com/hsiaocy/Beads
 
     """
     # The following parameter may be altered.
@@ -158,39 +164,3 @@ def make_diff_matrices(N):
     D1[-1, -1], D2[-1, -1] = 1., 1.
     # convert them back to dia_matrix
     return dia_matrix(D1), dia_matrix(D2)
-
-def main():
-
-    # load
-    import pandas as pd
-    import os
-    import matplotlib.pyplot as plt
-    dir = '/Users/AppleUser/MyProjects/Beads/Comments'
-    filename = 'test20190608.csv'
-    path = os.path.join(dir, filename)
-    sig = pd.read_csv(path, header=None).values[0][2501:2501 + 100]
-
-    # set parameters
-    fc = 0.006
-    d = 1
-    r = 6
-    amp = 0.8
-    lam0 = 0.5 * amp
-    lam1 = 5 * amp
-    lam2 = 4 * amp
-    Nit = 1
-    pen = 'L1_v2'
-
-    # then do and plot
-    x, f, cost = beads(y=sig, d=d, fc=fc, r=r, Nit=Nit, lam0=lam0, lam1=lam1, lam2=lam2, pen=pen)
-    fig = plt.figure()
-    ax1 = fig.add_subplot(2, 1, 1)
-    ax2 = fig.add_subplot(2, 1, 2)
-    ax1.plot(sig)
-    ax2.plot(x)
-    plt.show()
-    print(x)
-
-
-if __name__ == '__main__':
-    main()
