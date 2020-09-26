@@ -18,7 +18,7 @@ setup(
     long_description = long_description,
     long_description_content_type = 'text/markdown',
     url = 'https://github.com/skotaro/pybeads',
-    packages = find_packages(),
+    packages = find_packages(exclude=['sample_data']),
     classifiers = [
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.6',
