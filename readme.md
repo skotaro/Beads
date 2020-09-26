@@ -8,7 +8,9 @@ Simply run `pip install pybeads` in your terminal.
 Parameter notation and usage are same as the original MATLAB code's. Please see "Example" tab of [this page](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity). If you want to know the details of the parameters, please refer to the original paper in Resources.
 
 ## Sample data
-You can try with simulated chromatography data included in [Matlab code distrubution](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity). The data is the one tested in the original paper (Figure 12). Note that you need a MathWork account to downlowd the zip file. 
+Simulated chromatograms with eight different background levels (probably including the one tested in the original paper shown in Figure 12) and separated noise are available in MATLAB format at https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity, but MathWork account is required to download the zip file. For those who don't want to create a MathWork account just for this, I converted them into CSV format and included in this Python repo (`sample_data/chromatograms_and_noise.csv`).
+
+_Redistributed with permission by courtesy of Laurent Duval_. 
 
 ## A new parameter, `conv`
 The main function `beads` in this package has a parameter called `conv` which does not exist in the MATLAB code. This parameter is used for a smoothing feature for derivatives (moving average using convolution, to be correct). I noticed that the MATLAB implementation sometimes gives completely different results for regularization parameters with a slight difference, for example `lam1=0.001` and `lam1=0.0011`. This unpredictable behavior is suppressed when derivatives are smoothed. When you face such instability, I reccomend you to set `conv` to 3 or 5. Default is `None` which means "no smoothing".
@@ -37,6 +39,6 @@ plt.plot(range(len_l+len_o, len_l+len_o+len_r), y_r, 'C1')
 
 # Resources
 - [Original paper (2014)](https://doi.org/10.1016/j.chemolab.2014.09.014)
-- Preprint on [[laurent-duval.eu](http://www.laurent-duval.eu/Articles/Ning_X_2014_j-chemometr-intell-lab-syst_chromatogram_bedusbeads-preprint.pdf)
+- Preprint on [laurent-duval.eu](http://www.laurent-duval.eu/Articles/Ning_X_2014_j-chemometr-intell-lab-syst_chromatogram_bedusbeads-preprint.pdf)
 - [Project website](http://www.laurent-duval.eu/siva-beads-baseline-background-removal-filtering-sparsity.html)
 - [Original MATLAB code](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity)
