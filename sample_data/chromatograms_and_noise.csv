@@ -1,4 +1,4 @@
-# Simulated chromatograms of (almost?) same signal with eight different background levels + separeted noise at the last column.
+# Real chromatograms of (almost?) same signal with eight different background levels + computed white noise at the last column.
 # Redistributed with permission by courtesy of Laurent Duval.
 # Original files (chromatograms.mat and noise.mat in MATLAB format) is available at the link below (registration required).
 # https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity
