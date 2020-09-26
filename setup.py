@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name = 'pybeads',
-    version = '1.0',
+    version = '1.0.1',
     license = 'MIT',
     author = 'Kotaro Saito',
     author_email = 'kotaro.saito@kek.jp',
