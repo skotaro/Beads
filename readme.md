@@ -5,6 +5,40 @@ This is a Python translation of an awesome baseline estimation algorithm "BEADS"
 Simply run `pip install pybeads` in your terminal.
 
 # Usage
+
+```
+import pybeads as be
+
+y = (your data containing signal, noise and background)
+
+# try changing fc and lam0-2, amp if these dont' fit your data
+fc = 0.006
+d = 1
+r = 6
+amp = 0.8
+lam0 = 0.5 * amp
+lam1 = 5 * amp
+lam2 = 4 * amp
+Nit = 15
+pen = 'L1_v2'
+
+signal_est, bg_est, cost = be.beads(y, d, fc, r, Nit, lam0, lam1, lam2, pen, conv=None)
+```
+
+```
+# Quick visualization code
+signal_est, bg_est, cost = be.beads(y, d, fc, r, Nit, lam0, lam1, lam2, pen, conv=None)
+fig, axes = plt.subplots(3, 1, figsize=(12, 7), sharex=True)
+fig.subplots_adjust(hspace=0)
+axes[0].plot(y, c='k', label='original data')
+axes[0].plot(bg_est, c='r', label='BG estimated by BEADS')
+axes[0].legend()
+axes[1].plot(signal_est, label='signal estimated by BEADS')
+axes[1].legend()
+axes[2].plot(y-signal_est-bg_est, label='noise estimated by BEADS')
+axes[2].legend()
+```
+
 Parameter notation and usage are same as the original MATLAB code's. Please see "Example" tab of [this page](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity). If you want to know the details of the parameters, please refer to the original paper in Resources.
 
 ## Sample data
