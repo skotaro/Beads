@@ -42,7 +42,7 @@ axes[2].legend()
 Parameter notation and usage are same as the original MATLAB code's. Please see "Example" tab of [this page](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity). If you want to know the details of the parameters, please refer to the original paper in Resources.
 
 ## Sample data
-Real chromatograms with eight different background levels (probably including the one tested in the original paper shown in Figure 12) and additional computed white noise are available in MATLAB format at https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity, but MathWork account is required to download the zip file. For those who don't want to create a MathWork account just for this, I converted them into CSV format and included in this Python repo (`sample_data/chromatograms_and_noise.csv`).
+Real chromatograms with eight different background levels (probably including the one tested in the original paper shown in Figure 12) and additional computed white noise are available in MATLAB format at https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity, but MathWork account is required to download the zip file. For those who don't want to create a MathWork account just for this, I converted them into CSV format and included in this Python repo (`sample_data/chromatograms_and_noise.csv`). You can play with this test data with Jupyter notebook `pybeads_demo.ipynb`.
 
 _Redistributed with permission by courtesy of Laurent Duval_. 
 
