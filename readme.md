@@ -6,7 +6,7 @@ Simply run `pip install pybeads` in your terminal.
 
 # Usage
 
-```
+```python
 import pybeads as be
 
 y = (your data containing signal, noise and background)
@@ -25,7 +25,7 @@ pen = 'L1_v2'
 signal_est, bg_est, cost = be.beads(y, d, fc, r, Nit, lam0, lam1, lam2, pen, conv=None)
 ```
 
-```
+```python
 # Quick visualization code
 signal_est, bg_est, cost = be.beads(y, d, fc, r, Nit, lam0, lam1, lam2, pen, conv=None)
 fig, axes = plt.subplots(3, 1, figsize=(12, 7), sharex=True)
@@ -52,7 +52,7 @@ The main function `beads` in this package has a parameter called `conv` which do
 ## A tip for real data
 When you apply BEADS to your experimetal data, probably you'll find something is wrong at the both ends of your data which does not happen to the example data. The trick in the exmaple is that the both ends are smoothly decreasing to zero. To solve the issue, all you have to do is to do the same trick to your data by extending the both ends smoothly to zero. I reccomend to use a sigmoid function with an appropriate scaling factor for x, e.g. 30 to 100 or even bigger depending on the number of points of your data. Below is an exmaple.
 
-```
+```python
 import numpy as np
 
 def sigmoid(x):
