@@ -1,4 +1,4 @@
-# BEADS: Baseline Estimation And Denoising using Sparsity 
+# BEADS: Baseline Estimation And Denoising using Sparsity
 This is a Python translation of an awesome baseline estimation algorithm "BEADS" [originally written in MATLAB](https://jp.mathworks.com/matlabcentral/fileexchange/49974-beads-baseline-estimation-and-denoising-with-sparsity). The initial translation had been done by @hsiaocy. 
 
 # Installation
