@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.sparse import spdiags, dia_matrix, vstack
+from scipy.sparse import diags, spdiags, vstack
 from scipy.sparse.linalg import spsolve
 
 
@@ -156,11 +156,7 @@ def linv(a, b):
     return spsolve(a.tocsc(), b).reshape(len(b), 1)
 
 def make_diff_matrices(N):
-    e = np.ones((N-1, 1))
-    # Here, dia_matrix is temporally converted to numpy array (dense matrix)
-    # because dia_matrix does not support element-wise subsitution.
-    D1 = spdiags(np.array([-e, e]).squeeze(), [0, 1], N-1, N).toarray()
-    D2 = spdiags(np.array([e, -2*e, e]).squeeze(), range(0, 3), N-2, N).toarray()
-    D1[-1, -1], D2[-1, -1] = 1., 1.
-    # convert them back to dia_matrix
-    return dia_matrix(D1), dia_matrix(D2)
+    D1 = diags([-1, 1], [0, 1], shape=(N - 1, N))
+    D2 = diags([1, -2, 1], [0, 1, 2], shape=(N - 2, N))
+
+    return D1, D2
